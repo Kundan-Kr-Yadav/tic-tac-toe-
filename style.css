@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    overflow-x: hidden;
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    color: #e94560;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.containerBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    max-width: 300px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    aspect-ratio: 1/1;
+    background-color: #0f3460;
+    border: 2px solid #3d5a80;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: #e94560;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.box:hover {
+    background-color: #1a2d4d;
+    border-color: #e94560;
+    transform: scale(1.05);
+}
+.restart {
+    height: 40px;
+    min-width: 120px;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #4CAF50; /* Vibrant green */
+    color: white;
+    border: none;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.restart:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.restart:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #3d8b40; /* Even darker green when pressed */
+}
+
+/* Optional hover effect with ripple */
+.restart::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.restart:hover::before {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 400px) {
+    .container {
+        max-width: 250px;
+        gap: 0.3rem;
+    }
+
+    .box {
+        font-size: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
